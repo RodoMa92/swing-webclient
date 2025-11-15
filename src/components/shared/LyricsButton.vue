@@ -1,11 +1,11 @@
 <template>
   <button
-    title="Lyrics"
+    title="{{ $t('Common.Lyrics') }}"
     class="lyrics"
     :class="{ showStatus: lyrics.exists }"
     @click="handleClick"
   >
-    <LyricsSvg /> {{ showText ? "Lyrics" : "" }}
+    <LyricsSvg /> {{ showText ? t('Common.Lyrics') : "" }}
   </button>
 </template>
 
@@ -16,6 +16,10 @@ import { useRoute, useRouter } from "vue-router";
 import { Routes } from "@/router";
 import useLyrics from "@/stores/lyrics";
 import LyricsSvg from "@/assets/icons/lyrics.svg";
+
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 defineProps<{
   showText?: boolean;

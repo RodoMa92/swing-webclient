@@ -31,12 +31,12 @@
     <div class="float-buttons flex">
       <div
         class="fav-icon"
-        :title="is_fav ? 'Add to favorites' : 'Remove from favorites'"
+        :title="is_fav ? t('TrackItem.AddToFavorites') : t('TrackItem.RemoveFromFavorites')"
         @click.stop="() => addToFav(track.trackhash)"
       >
         <HeartSvg :state="is_fav" :no_emit="true" />
       </div>
-      <div v-if="isQueueTrack" class="remove-track" title="Remove from queue" @click.stop="player.removeByIndex(index)">
+      <div v-if="isQueueTrack" class="remove-track" title="{{ $t('TrackItem.RemoveFromQueue') }}" @click.stop="player.removeByIndex(index)">
         <DelSvg />
       </div>
     </div>
@@ -57,6 +57,10 @@ import { Track } from "@/interfaces";
 import DelSvg from "@/assets/icons/plus.svg";
 import ArtistName from "./ArtistName.vue";
 import HeartSvg from "./HeartSvg.vue";
+
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
   track: Track;
