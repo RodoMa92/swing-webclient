@@ -11,12 +11,12 @@
             <RepeatOneSvg v-if="settings.repeat == 'one'" />
             <RepeatAllSvg v-else />
         </button>
-        <button title="Shuffle" @click="queue.shuffleQueue">
+        <button title="{{ t('BottomBar.Shuffle')}}" @click="queue.shuffleQueue">
             <ShuffleSvg />
         </button>
         <HeartSvg
             v-if="!hideHeart"
-            title="Favorite"
+            title="{{ t('BottomBar.Favorite') }}"
             :state="queue.currenttrack?.is_favorite"
             @handleFav="() => $emit('handleFav')"
         />

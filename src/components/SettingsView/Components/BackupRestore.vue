@@ -20,19 +20,19 @@
                     </div>
                     <div class="item__stats">
                         <div class="item__playlists">
-                            {{ (backup.playlists !== 1 ? t('Settings.Backup.PlaylistCountPlural', { count: backup.playlists }) : t('Settings.Backup.PlaylistCount', { count: backup.playlists })) }}
+                            {{ t('Settings.Backup.PlaylistCount', { count: backup.playlists }, backup.playlists) }}
                         </div>
                         •
                         <div class="item__scrobbles">
-                            {{ (backup.scrobbles !== 1 ? t('Settings.Backup.ScrobbleCountPlural', { count: backup.scrobbles }) : t('Settings.Backup.ScrobbleCount', { count: backup.scrobbles })) }}
+                            {{ t('Settings.Backup.ScrobbleCount', { count: backup.scrobbles }, backup.scrobbles) }}
                         </div>
                         •
                         <div class="item__favorites">
-                            {{ (backup.favorites !== 1 ? t('Settings.Backup.FavoriteCountPlural', { count: backup.favorites }) : t('Settings.Backup.FavoriteCount', { count: backup.favorites })) }}
+                            {{ t('Settings.Backup.FavoriteCount', { count: backup.favorites }, backup.favorites) }}
                         </div>
                         •
                         <div class="item__collections">
-                            {{ (backup.collections !== 1 ? t('Settings.Backup.CollectionCountPlural', { count: backup.collections }) : t('Settings.Backup.CollectionCount', { count: backup.collections })) }}
+                            {{ t('Settings.Backup.CollectionCount', { count: backup.collections }, backup.collections) }}
                         </div>
                     </div>
                 </div>

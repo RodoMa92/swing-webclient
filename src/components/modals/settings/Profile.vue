@@ -3,7 +3,7 @@
         <div class="profileavatar">
             <Avatar :name="username || auth.user.username" />
             <div class="name">
-                {{ adding_user ? username : `Hi ${auth.user.username}` }}
+                {{ adding_user ? username : t('Profile.HiUser', {user: auth.user.username}) }}
             </div>
             <div class="roles" v-if="!adding_user">
                 <span class="role" v-for="role in auth.user.roles" :key="role"> {{ role }}</span>
@@ -11,21 +11,22 @@
         </div>
         <form class="updateprof" v-auto-animate @submit.prevent="handleSubmit">
             <div class="names">
-                <label for="username">Username</label>
+                <label for="username">{{ t('Profile.Username')}}</label>
                 <Input
-                    :placeholder="adding_user ? 'username' : auth.user.username"
+                    :placeholder="adding_user ? t('Profile.Username') : auth.user.username"
                     @input="input => (username = input)"
                 />
             </div>
-            <label for="pswd">{{ adding_user ? 'Create' : 'Change' }} password</label>
+            <label for="pswd">{{ adding_user ? t('Profile.PasswordAction', {action: t('Common.Create')}) 
+                : t('Profile.PasswordAction', {action: t('Common.Change')}) }}</label>
             <Input type="password" placeholder="⏺⏺⏺⏺⏺⏺⏺⏺" @input="input => (password = input)" />
             <div class="confirmpassword" v-if="password.length">
-                <label for="confirmpswd">Confirm password</label>
+                <label for="confirmpswd">{{ t('Profile.ConfirmPassword') }}</label>
                 <Input type="password" placeholder="⏺⏺⏺⏺⏺⏺⏺⏺" @input="input => (confirmPassword = input)" />
                 <label class="error" v-if="errorText">{{ errorText }}</label>
             </div>
             <button v-if="showSubmit">
-                {{ adding_user ? 'Add user' : 'Update' }}
+                {{ adding_user ? t('Profile.AddUser') : t('Common.Update') }}
             </button>
         </form>
     </div>
@@ -38,6 +39,9 @@ import Avatar from '@/components/shared/Avatar.vue'
 import Input from '@/components/shared/Input.vue'
 import { User } from '@/interfaces'
 import useAuth from '@/stores/auth'
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
     adding_user?: boolean
@@ -73,7 +77,7 @@ const errorText = computed(() => {
     }
 
     if (confirmPassword.value.length && password.value !== confirmPassword.value) {
-        return 'Passwords do not match'
+        return t('Profile.PasswordMismatch')
     }
 })
 
