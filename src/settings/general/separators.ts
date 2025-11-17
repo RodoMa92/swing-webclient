@@ -4,9 +4,13 @@ import { SettingType } from '../enums'
 import useSettingsStore from '@/stores/settings'
 import { updateConfig } from '@/requests/settings'
 
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 export default <Setting>{
-    title: 'Enter separators separated by a comma',
-    desc: `These will be used to separate artists and album artists`,
+    title: t("Settings.General.Separators.Title"),
+    desc: t("Settings.General.Separators.Description"),
     state: () => {
         const store = useSettingsStore()
 

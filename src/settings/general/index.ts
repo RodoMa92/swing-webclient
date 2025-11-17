@@ -22,6 +22,10 @@ import FolderSvg from '@/assets/icons/folder.svg?raw'
 import TrackSvg from '@/assets/icons/mic.svg?raw'
 import AppearanceSvg from '@/assets/icons/paintbrush.svg?raw'
 
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const npStrings = strings.nowPlayingStrings
 const rootRootStrings = strings.manageRootDirsStrings
 
@@ -29,8 +33,8 @@ export const general = {
     // title: 'General',
     groups: [
         {
-            title: 'Appearance',
-            desc: 'Settings for various parts of the user interface.',
+            title: t("Common.Appearance"),
+            desc: t("Settings.General.MainSettingsDescription"),
             icon: AppearanceSvg,
             settings: [
                 ...layout,
@@ -46,11 +50,11 @@ export const general = {
 } as SettingCategory
 
 export const library = {
-    title: 'Library',
+    title: t("Common.Library"),
     show_if: loggedInUserIsAdmin,
     groups: [
         {
-            title: "Folders",
+            title: t("Common.Folders"),
             icon: FolderSvg,
             desc: rootRootStrings.desc,
             settings: [...rootDirSettings],
@@ -58,31 +62,31 @@ export const library = {
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: 'Tracks',
+            title: t("Common.Tracks"),
             icon: TrackSvg,
-            desc: 'Settings relating to track information',
+            desc: t("Settings.General.TrackInfoSettingsDesc"),
             settings: [...tracks],
         },
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: 'Albums',
+            title: t("Common.Albums"),
             icon: AlbumSvg,
-            desc: 'Settings relating to album information',
+            desc: t("Settings.General.AlbumInfoSettingsDesc"),
             settings: [...albums],
         },
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: 'Artists',
+            title: t("Common.Artists"),
             icon: AvatarSvg,
-            desc: 'Customize artist separators',
+            desc: t("Settings.General.ArtistSeparatorDesc"),
             settings: [separators],
         },
         {
-            title: "Backup",
+            title: t("Common.Backup"),
             icon: AvatarSvg,
-            desc: "Backup and restore your settings",
+            desc: t("Settings.General.BackupMainDesc"),
             settings: [...restore],
         }
     ],
