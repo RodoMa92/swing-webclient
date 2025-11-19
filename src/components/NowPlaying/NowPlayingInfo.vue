@@ -8,7 +8,7 @@
         :albumartists="queue.currenttrack?.albumartists || ''"
       />
       <span v-else class="artist author">
-        <a href="https://github.com/mungai-njoroge" target="_blank">{{ t('Common.BuiltBy')}}</a>
+        <a href="https://github.com/mungai-njoroge" target="_blank">{{ $t('Common.BuiltBy') }}</a>
       </span>
     </div>
     <div class="actions">
@@ -27,10 +27,6 @@ import HeartSvg from "../shared/HeartSvg.vue";
 import OptionSvg from "@/assets/icons/more.svg";
 import { showTrackContextMenu } from "@/helpers/contextMenuHandler";
 import useQueueStore from "@/stores/queue";
-
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 
 const context_menu_showing = ref(false);
 

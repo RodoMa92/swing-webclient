@@ -10,10 +10,9 @@ import { addArtistToPlaylist } from '@/requests/playlists'
 import { AddToQueueIcon, DeleteIcon, PlayNextIcon, PlusIcon } from '@/icons'
 import { Artist, Collection, Option, Playlist } from '@/interfaces'
 import { getAddToCollectionOptions, getAddToPlaylistOptions, get_find_on_social } from './utils'
+import { getT } from '@/i18n'
 
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
+const { t } = getT()
 
 export default async (artisthash: string, artistname: string) => {
     const play_next = <Option>{

@@ -1,10 +1,10 @@
 <template>
     <div class="backup-restore">
-        <button class="backupnow" @click="doBackup">{{ t('Settings.Backup.Title') }}</button>
+        <button class="backupnow" @click="doBackup">{{ $t('Settings.Backup.Title') }}</button>
         <div class="separator"></div>
-        <h4>{{ t('Settings.Backup.RestoreBackup') }}</h4>
+        <h4>{{ $t('Settings.Backup.RestoreBackup') }}</h4>
         <div class="helptext">
-            {{ t('Settings.Backup.BackupCount', { count: backups.length }) }}
+            {{ $t('Settings.Backup.BackupCount', { count: backups.length }) }}
         </div>
         <div></div>
         <br />
@@ -20,29 +20,29 @@
                     </div>
                     <div class="item__stats">
                         <div class="item__playlists">
-                            {{ t('Settings.Backup.PlaylistCount', { count: backup.playlists }, backup.playlists) }}
+                            {{ $t('Settings.Backup.PlaylistCount', { count: backup.playlists }, backup.playlists) }}
                         </div>
                         •
                         <div class="item__scrobbles">
-                            {{ t('Settings.Backup.ScrobbleCount', { count: backup.scrobbles }, backup.scrobbles) }}
+                            {{ $t('Settings.Backup.ScrobbleCount', { count: backup.scrobbles }, backup.scrobbles) }}
                         </div>
                         •
                         <div class="item__favorites">
-                            {{ t('Settings.Backup.FavoriteCount', { count: backup.favorites }, backup.favorites) }}
+                            {{ $t('Settings.Backup.FavoriteCount', { count: backup.favorites }, backup.favorites) }}
                         </div>
                         •
                         <div class="item__collections">
-                            {{ t('Settings.Backup.CollectionCount', { count: backup.collections }, backup.collections) }}
+                            {{ $t('Settings.Backup.CollectionCount', { count: backup.collections }, backup.collections) }}
                         </div>
                     </div>
                 </div>
                 <div class="buttons">
                     <DeleteSvg @click="() => deleteBackup(backup.name)" />
-                    <button class="restore" @click="() => restore(backup.name)">{{ t('Settings.Backup.RestoreButton') }}</button>
+                    <button class="restore" @click="() => restore(backup.name)">{{ $t('Settings.Backup.RestoreButton') }}</button>
                 </div>
             </div>
         </div>
-        <button class="restore-all" @click="() => restore()">{{ t('Settings.Backup.RestoreAllButton') }}</button>
+        <button class="restore-all" @click="() => restore()">{{ $t('Settings.Backup.RestoreAllButton') }}</button>
     </div>
 </template>
 
@@ -51,9 +51,6 @@ import { backupNow, getBackups, restoreBackup, deleteBackup as deleteBackupReq }
 import { onMounted, ref } from 'vue'
 import { useToast } from '@/stores/notification'
 import DeleteSvg from '@/assets/icons/delete.svg'
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 
 const toast = useToast()
 

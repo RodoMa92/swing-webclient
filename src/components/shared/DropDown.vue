@@ -7,7 +7,7 @@
                 @click.prevent="handleOpener"
                 :title="
                     reverse !== 'hide'
-                        ? t('DropDown.SortByUppercase', {title: current.title.toUpperCase(), order: reverse ? t('Common.Descending').toUpperCase() : t('Common.Ascending').toUpperCase()})
+                        ? $t('DropDown.SortByUppercase', {title: current.title.toUpperCase(), order: reverse ? $t('Common.Descending').toUpperCase() : $t('Common.Ascending').toUpperCase()})
                         : undefined
                 "
             >
@@ -33,10 +33,6 @@ import { onClickOutside } from '@vueuse/core'
 import { Ref, ref } from 'vue'
 
 import ArrowSvg from '@/assets/icons/arrow.svg'
-
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
 
 const showDropDown = ref(false)
 const dropOptionsRef: Ref<HTMLElement | undefined> = ref()

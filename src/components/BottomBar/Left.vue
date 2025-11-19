@@ -7,7 +7,7 @@
         />
         <RouterLink
             v-else
-            title="{{t('BottomBar.GoToNowPlaying')}}"
+            :title="$t('BottomBar.GoToNowPlaying')"
             :to="{
                 name: Routes.nowPlaying,
                 params: {
@@ -30,14 +30,14 @@
         >
             <div v-tooltip class="title">
                 <span class="ellip">
-                    {{ queue.currenttrack?.title || t('BottomBar.PlaceholderTitle') }}
+                    {{ queue.currenttrack?.title || $t('BottomBar.PlaceholderTitle') }}
                 </span>
                 <ExplicitIcon class="explicit-icon" v-if="queue.currenttrack?.explicit" />
                 <MasterFlag :bitrate="queue.currenttrack?.bitrate || 0" />
             </div>
             <ArtistName
                 :artists="queue.currenttrack?.artists || []"
-                :albumartists="queue.currenttrack?.albumartists || t('BottomBar.PlaceholderArtist')"
+                :albumartists="queue.currenttrack?.albumartists || $t('BottomBar.PlaceholderArtist')"
                 class="artist"
             />
         </div>

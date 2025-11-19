@@ -2,12 +2,13 @@ import { Setting } from '@/interfaces/settings'
 import { addRootDirs as editRootDirs, triggerScan } from '@/requests/settings/rootdirs'
 import { SettingType } from '../enums'
 import { manageRootDirsStrings as data } from '../strings'
-import { useI18n } from 'vue-i18n'
 
 import useModalStore from '@/stores/modal'
 import settings from '@/stores/settings'
+import { getT } from '@/i18n'
 
-const { t } = useI18n()
+const { t } = getT()
+
 const text = data.settings
 
 const change_root_dirs: Setting = {

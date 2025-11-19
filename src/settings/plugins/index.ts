@@ -7,9 +7,9 @@ import LastfmSvg from '@/assets/icons/lastfm.svg?raw'
 
 import { loggedInUserIsAdmin } from '../utils'
 import lastfm from './lastfm'
-import { useI18n } from 'vue-i18n'
+import { getT } from '@/i18n'
 
-const { t } = useI18n()
+const { t } = getT()
 
 export default <SettingCategory>{
     title: t("Common.Plugins"),

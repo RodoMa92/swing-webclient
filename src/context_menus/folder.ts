@@ -8,10 +8,9 @@ import useTracklist from "@/stores/queue/tracklist";
 
 import { addFolderToPlaylist } from "@/requests/playlists";
 import { getAddToPlaylistOptions } from "./utils";
+import { getT } from "@/i18n";
 
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+const { t } = getT();
 
 export default async (path: string) => {
   const modal = useModal();

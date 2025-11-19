@@ -15,7 +15,7 @@
       </div>
       <div class="p-name ellip">{{ playlist.name }}</div>
       <div class="p-count">
-        <b>{{ playlist.count.toLocaleString() + ` ${playlist.count === 1 ? t('PlaylistsList.TrackCount') : t('PlaylistsList.TrackCountPlural')}` }}</b>
+        <b>{{ playlist.count.toLocaleString() + $t('PlaylistsList.TrackCount', playlist.count) }}</b>
       </div>
     </div>
   </router-link>

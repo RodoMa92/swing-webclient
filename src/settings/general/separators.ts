@@ -3,10 +3,9 @@ import { SettingType } from '../enums'
 
 import useSettingsStore from '@/stores/settings'
 import { updateConfig } from '@/requests/settings'
+import { getT } from '@/i18n'
 
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
+const { t } = getT()
 
 export default <Setting>{
     title: t("Settings.General.Separators.Title"),

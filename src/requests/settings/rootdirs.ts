@@ -2,9 +2,9 @@ import { paths } from '@/config'
 import { Folder } from '@/interfaces'
 import { NotifType, useToast } from '@/stores/notification'
 import useAxios from '../useAxios'
-import { useI18n } from 'vue-i18n'
+import { getT } from '@/i18n';
 
-const { t } = useI18n()
+const { t } = getT();
 
 const { add_root_dir, get_root_dirs, remove_root_dir } = paths.api.settings
 

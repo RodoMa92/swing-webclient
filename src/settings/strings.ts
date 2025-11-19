@@ -2,9 +2,9 @@
  * Settings data strings
  */
 
-import { useI18n } from "vue-i18n";
+import { getT } from "@/i18n";
 
-const { t } = useI18n();
+const { t } = getT();
 
 interface S {
   title?: string;

@@ -2,9 +2,9 @@ import { Setting } from "@/interfaces/settings";
 import { SettingType } from "../enums";
 
 import useSettings from "@/stores/settings";
-import { useI18n } from "vue-i18n";
+import { getT } from "@/i18n";
 
-const { t } = useI18n();
+const { t } = getT();
 
 const toggle_lyrics_plugin = <Setting>{
   title: t("Settings.Plugins.Lyrics.ToggleLyrics.Title"),

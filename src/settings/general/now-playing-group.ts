@@ -1,11 +1,10 @@
+import { getT } from '@/i18n'
 import { SettingType } from '../enums'
 import { Setting } from '@/interfaces/settings'
 
 import useSettingsStore from '@/stores/settings'
 
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+const { t } = getT()
 
 const settings = useSettingsStore
 
