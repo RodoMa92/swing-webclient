@@ -61,7 +61,7 @@ export const library = {
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: t("Common.Tracks"),
+            title: t("Common.Track", 2),
             icon: TrackSvg,
             desc: t("Settings.General.TrackInfoSettingsDesc"),
             settings: [...tracks],
@@ -69,7 +69,7 @@ export const library = {
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: t("Common.Albums"),
+            title: t("Common.Album", 2),
             icon: AlbumSvg,
             desc: t("Settings.General.AlbumInfoSettingsDesc"),
             settings: [...albums],
@@ -77,7 +77,7 @@ export const library = {
         {
             // null means settings table is not created yet
             show_if: () => useSettings().feat !== null,
-            title: t("Common.Artists"),
+            title: t("Common.Artist", 2),
             icon: AvatarSvg,
             desc: t("Settings.General.ArtistSeparatorDesc"),
             settings: [separators],
